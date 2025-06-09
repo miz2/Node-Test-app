@@ -9,10 +9,10 @@ pipeline {
 
   stages {
     stage('Checkout Code') {
-      steps {
-        git 'https://github.com/your-username/your-repo.git'
-      }
+    steps {
+        git url: 'https://github.com/miz2/Node-Test-app.git', branch: 'main'
     }
+}
 
     stage('Install Dependencies') {
       steps {
