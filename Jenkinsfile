@@ -5,10 +5,7 @@ pipeline {
     APP_NAME = "my-node-app"
     DOCKER_IMAGE = "my-node-app:latest"
     CONTAINER_NAME = "my-node-app-container"
-  }
-
-  tools {
-    nodejs 'nodejs'  // this must match the name in Jenkins Global Tool Configuration
+    PATH = "/usr/local/bin:${env.PATH}"  // Adjust if Docker is in a different location
   }
 
   stages {
@@ -39,10 +36,10 @@ pipeline {
     stage('Deploy Locally') {
       steps {
         sh '''
-        if [ "$(docker ps -aq -f name=$CONTAINER_NAME)" ]; then
-          docker rm -f $CONTAINER_NAME
-        fi
-        docker run -d --name $CONTAINER_NAME -p 3000:3000 $DOCKER_IMAGE
+          if [ "$(docker ps -aq -f name=$CONTAINER_NAME)" ]; then
+            docker rm -f $CONTAINER_NAME
+          fi
+          docker run -d --name $CONTAINER_NAME -p 3000:3000 $DOCKER_IMAGE
         '''
       }
     }
