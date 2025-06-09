@@ -7,12 +7,16 @@ pipeline {
     CONTAINER_NAME = "my-node-app-container"
   }
 
+  tools {
+    nodejs 'nodejs'  // this must match the name in Jenkins Global Tool Configuration
+  }
+
   stages {
     stage('Checkout Code') {
-    steps {
+      steps {
         git url: 'https://github.com/miz2/Node-Test-app.git', branch: 'main'
+      }
     }
-}
 
     stage('Install Dependencies') {
       steps {
