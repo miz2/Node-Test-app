@@ -5,7 +5,7 @@ pipeline {
     APP_NAME = "my-node-app"
     DOCKER_IMAGE = "my-node-app:latest"
     CONTAINER_NAME = "my-node-app-container"
-    PATH = "/usr/local/bin:${env.PATH}"  // Adjust if Docker is in a different location
+    PATH = "/usr/local/bin:${env.PATH}"  
   }
 
   stages {
