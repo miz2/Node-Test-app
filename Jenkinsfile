@@ -51,3 +51,12 @@ pipeline {
     }
   }
 }
+post {
+        always {
+            echo 'Cleaning up Docker...'
+            sh 'docker rm -f my-node-app || true'
+            sh 'docker rmi -f my-node-app:latest || true'
+            sh 'docker image prune -f'
+            sh 'docker system prune -f --volumes'
+        }
+    }
