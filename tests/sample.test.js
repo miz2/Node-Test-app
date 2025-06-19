@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../index'); // Adjust if your main file is named differently
+const app = require('../index'); 
 
 describe('POST /add', () => {
   it('adds two positive numbers', async () => {
