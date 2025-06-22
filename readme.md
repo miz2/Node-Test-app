@@ -1,9 +1,3 @@
-Clean Up Using
-
-docker rm -f my-node-app-container
-
-
-
 ---
 
 ```markdown
@@ -135,4 +129,8 @@ Make sure Jenkins agent has:
 * Docker CLI access
 * Node.js installed
 * Git credentials configured (or public repo)
+---
+Clean Up Using
+
+docker rm -f my-node-app-container
 
